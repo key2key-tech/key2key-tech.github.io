@@ -1,28 +1,175 @@
-<h1>Welcome to project <b>key2key</b>..</h1>
-<br>
-Keybase[0] is failing to reach its true potential after being acquired[1]. 
-<br>
-Our goal is to continue the original vision to deliver capable cryptography in a user-friendly package.
-<br>
-<h2>What are we doing?</h2>
-<br>
-We are creating a federated fork of the keybase with strong privacy guarantees:
-<br>
-- Full e2e encryption<br>
-- Metadata leak protection<br>
-- High resiliency to attacks<br>
-- Decentralized hierarchical model with no single points of failure<br>
-<br>
-<h2>How are we doing this?</h2>
-<br>
-Using the existing open source client[2], we are reverse engineering the server code to allow anyone to host an open source server.<br>
-<br>
-<h2>Why are we doing this?</h2>
-<br>
-- For ourselves: we are avid keybase users and we are preparing for the moment keybase centralized servers will be shut down<br>
-- For the existing keybase community: keybase has built such an awesome community and we think it should be preserved<br>
-- For the FOSS space as a whole: keybase is a useful tool that needs more development to reach its full potential<br>
-<br>
-[0] https://keybase.io<br>
-[1] https://keybase.io/blog/keybase-joins-zoom<br>
-[2] https://github.com/keybase/client<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEY2KEY</title>
+    <meta property="og:title" content="KEY2KEY">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>
+<body>
+    <header>
+        <h1>KEY2KEY</h1>
+        <nav>
+            <a href="#design">Design</a> /
+            <a href="#roadmap">Roadmap</a> /
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <br>
+
+    <blockquote><i>Keybase never reached its true potential after being acquired. Our goal is to continue the original vision that this awesome messaging app has deviated from.</blockquote>
+
+    <p>Creating a federated fork of Keybase with <strong>strong privacy guarantees</strong>:</p>
+
+    <ul>
+        <li>Full e2e encryption</li>
+        <li>Metadata leak protection</li>
+        <li>High resiliency to attacks</li>
+        <li>Decentralized hierarchal model</li>
+    </ul>
+
+    <p>Using the Keybase existing client, KEY2KEY will look to rebuild the server side, with the goal of allowing anyone to host a chat server.</p>
+
+    <p>KEY2KEY will also improve and expand on many features Keybase currently has, with a strong focus on identity, by building on existing Keybase’s very strong encryption primitives.</p>
+
+    <p>Let's build it together... hiring@key2key.tech</p>
+
+    <br>
+
+    <h2>Why?</h2>
+
+    <ul>
+        <li><strong>For ourselves:</strong> we are avid Keybase users, and we fear the moment Keybase’s centralized servers will be shut down</li>
+        <li><strong>For the community:</strong> Keybase has built such an awesome community we think it should be preserved and we are determined to create the right tools for this job</li>
+        <li><strong>For the FOSS space as a whole:</strong> Keybase has always been an awesome piece of tech that never reached its true potential, we think it deserves to be developed more</li>
+    </ul>
+
+    <br>
+
+    <h2 id="design">Metadata Protection</h2>
+
+    <p>KEY2KEY is looking to build a fully distributed encrypted messaging system that emphasizes privacy and resiliency.
+Metadata leaked should be the minimum required for the system to operate. Server outages should not break messaging capabilities. The security and privacy model are designed around the assumption that any server can and will be malicious or compromised.</p>
+
+    <p>We aim to use easy to reason about primitives to build a system that is private, secure, and resilient without complexity that prevents a simple analysis of the components and the whole.</p>
+
+    <p>Servers will only have limited awareness of the data being stored, beyond basic validation/sanitization parameters.</p>
+
+    <p>The goal is that a malicious server will not know with certainty:</p>
+
+    <ul>
+        <li>Which groups a user is in</li>
+        <li>Which participants are members in groups the user is in</li>
+        <li>Exactly how many groups the user is active in</li>
+    </ul>
+
+    <br>
+
+    <h2>Identity</h2>
+
+    <p>Identity is the core and focus of KEY2KEY, to expand on the primitives built by Keybase allowing easier privacy for any user, with the ability to prove ownership of personal data and participate in the public forum via governance social systems, building the tools for the sovereign digital individual.
+</p>
+
+    <br>
+
+    <h2>Federations</h2>
+
+    <p>To prevent a single points of failure, after our first iteration of the federated system our long-term goals are such that servers are federated so that a user can decide to use one or multiple external servers to store their messages and groups.</p>
+
+    <p>If participants do not share the same servers in common, data is redundantly stored to ensure that each participant has access to their groups and messages through one of their trusted providers, it is always possible for users to run their own services.</p>
+
+    <br>
+
+    <h2>The Fractal Design</h2>
+
+    <ul>
+      <li>Multiple users make a chatroom.</li>
+      <li>Multiple chatrooms make a resource chat server.</li>
+      <li>Multiple resource servers are managed by the identity servers.</li>
+      <li>Multiple identity servers make a unique federated instance.</li>
+      <li>Multiple federated instances make the whole.</li>
+    </ul>
+
+    <br>
+
+    <h2>Federated Instances</h2>
+
+    <p>Federated instances will be fully autonomous parts of the system which will naturally structure around common interests/topics such as general KEY2KEY, git federated instance, videogame federated instance etc.</p>
+
+    <p>Instances will act as hubs to which different resources will fully integrate, thanks to instances, chat rooms will have access to storage capabilities, git and more, using Keybase already existing resources and expanding on them.</p>
+
+    <br>
+
+    <h2>Identity Servers</h2>
+
+    <p>Identity servers govern federated instances and keep the identity of all users and all the metadata needed for operations, they also allow for users to find all the resources and connect to all other instances services.</p>
+
+    <ul>
+      <li>One per federated instance in initial phase</li>
+      <li>Stores public identity data</li>
+      <li>Indexes public chat servers</li>
+      <li>Indexes all available resources and other types of services/servers</li>
+    </ul>
+
+    <br>
+
+    <h2>Chat Servers</h2>
+
+    <p>Users will not be communicating in a p2p way but using chat servers in between them, chat server stores all the chat messages and allow people to create and join groups, everything is fully encrypted and the system is resilient thanks to easily portable data and client side storage.</p>
+
+    <ul>
+      <li>Associated with a particular federated instance</li>
+      <li>Encrypted data stores to allow users to chat without revealing chat content and metadata to server</li>
+      <li>Bandwidth/resources available per chat/user determined by chat server owner</li>
+    </ul>
+
+    <br>
+
+    <h2 id="roadmap">Roadmap</h2>
+
+    <h4>Phase 0: Keybase Proof of Concept KEY2KEY</h4>
+
+    <p>Keybase client, Golang API server Keybase id/account and chat API.</p>
+
+    <h4>Phase 1: Federated instance Proof of Concept</h4>
+
+    <p>Add federated instances, identity and resource server functionality and new social functions.</p>
+
+    <h4>Phase 2: Metadata</h4>
+
+    <p>Have a fully working codebase that protects people metadata.</p>
+
+    <h4>Phase 3: Plugins</h4>
+
+    <p>Build plugins as native code integration and as expandable framework.</p>
+
+    <h4>Phase 4: Distributed Consensus</h4>
+
+    <p>Distributed consensus for identity storage, this phase will allow anyone to host a identity server.</p>
+
+    <p>Deeper governance for federated instances and multi federated instance support.</p>
+
+    <h4>Phase 5: Interoperability</h4>
+
+    <p>Have basic interoperability between federated instances, such that people can port their identity and cross communicate.</p>
+
+    <h4>Phase 6: WASM Sandbox</h4>
+
+    <p>WASM website plugins, 2nd class of plugins in web assembly with access to specific info through an API that is able to communicate outside a sandbox.</p>
+
+    <br>
+
+    <h2 id="contact">Contact</h2>
+
+    <p>Interested in working on KEY2KEY? Contact us at hiring@key2key.tech</p>
+
+    <br>
+    <hr>
+    <br>
+
+</body>
+</html>
